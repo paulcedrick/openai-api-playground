@@ -1,8 +1,9 @@
-import { memo, ReactNode } from "react";
+import Markdown from "markdown-to-jsx";
+import { memo } from "react";
 
 function MessageBubble(props: {
   role: "function" | "data" | "system" | "user" | "assistant" | "tool";
-  content: ReactNode;
+  content: string;
 }) {
   if (props.role === "user") {
     return (
@@ -17,9 +18,9 @@ function MessageBubble(props: {
               {new Date().toLocaleTimeString()}
             </span>
           </div>
-          <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
-            {props.content}
-          </p>
+          <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+            <Markdown>{props.content}</Markdown>
+          </div>
         </div>
       </div>
     );
@@ -27,7 +28,7 @@ function MessageBubble(props: {
 
   return (
     <div className="flex justify-between">
-      <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-xl dark:bg-gray-900">
+      <div className="flex flex-col w-full max-w-[80%] leading-1.5 p-4 border-gray-200 rounded-xl dark:bg-gray-900">
         <div className="flex items-center space-x-2">
           <span className="text-sm font-semibold text-gray-900 dark:text-white">
             4o mini
@@ -36,9 +37,9 @@ function MessageBubble(props: {
             {new Date().toLocaleTimeString()}
           </span>
         </div>
-        <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
-          {props.content}
-        </p>
+        <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+          <Markdown>{props.content}</Markdown>
+        </div>
       </div>
       <div />
     </div>
