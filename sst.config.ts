@@ -9,6 +9,10 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.Nextjs("MyWeb");
+    new sst.aws.Nextjs("MyWeb", {
+      environment: {
+        OPENAI_API_KEY: process.env.OPENAI_API_KEY ?? "",
+      },
+    });
   },
 });
