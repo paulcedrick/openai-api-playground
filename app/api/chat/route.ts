@@ -1,6 +1,8 @@
 import { openai } from "@ai-sdk/openai";
 import { convertToCoreMessages, streamText } from "ai";
 
+export const maxDuration = 30;
+
 export async function POST(request: Request) {
   try {
     const { messages } = await request.json();
@@ -10,9 +12,12 @@ export async function POST(request: Request) {
       messages: convertToCoreMessages(messages),
     });
 
-    return result.toDataStream();
+    return result.toDataStreamResponse();
   } catch (err: unknown) {
     if (err instanceof Error) {
+      console.error({
+        message: err.message,
+      });
       return Response.json(
         {
           message: err.message,
