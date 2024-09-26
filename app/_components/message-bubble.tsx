@@ -40,6 +40,9 @@ function MessageBubble(props: {
         <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
           <Markdown>{props.content}</Markdown>
         </div>
+        <button onClick={() => navigator.clipboard.writeText(props.content)}>
+          Copy
+        </button>
       </div>
       <div />
     </div>

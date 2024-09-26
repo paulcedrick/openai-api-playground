@@ -45,6 +45,10 @@ function FloatingChatbox({
 
                 resetInputHeight();
               }
+
+              if (ev.code === "Backspace") {
+                resetInputHeight();
+              }
             }}
             placeholder="Type your message here then press enter if you want to send your message or shift + enter for new line..."
             className="bg-zinc-700 resize-none max-h-60"
