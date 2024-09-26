@@ -29,32 +29,32 @@ function FloatingChatbox({
   return (
     <div className="fixed bottom-0 w-full left-0 py-6 pt-0 bg-zinc-800">
       <Container>
-        <form onSubmit={handleSubmit}>
-          <Textarea
-            ref={ref}
-            onChange={(ev) => {
-              console.log({ value: ev.target.value });
-              handleInputChange(ev);
-              adjustInputHeight();
-            }}
-            value={input}
-            onKeyDown={(ev) => {
-              if (!ev.shiftKey && ev.code === "Enter") {
-                ev.preventDefault();
-                handleSubmit();
+        <Textarea
+          ref={ref}
+          onChange={(ev) => {
+            handleInputChange(ev);
+            adjustInputHeight();
+          }}
+          value={input}
+          onKeyDown={(ev) => {
+            if (!ev.shiftKey && ev.code === "Enter") {
+              ev.preventDefault();
 
-                resetInputHeight();
-              }
+              if (input.trim() === "") return;
 
-              if (ev.code === "Backspace") {
-                resetInputHeight();
-              }
-            }}
-            placeholder="Type your message here then press enter if you want to send your message or shift + enter for new line..."
-            className="bg-zinc-700 resize-none max-h-60"
-            rows={1}
-          />
-        </form>
+              handleSubmit();
+
+              resetInputHeight();
+            }
+
+            if (ev.code === "Backspace") {
+              resetInputHeight();
+            }
+          }}
+          placeholder="Type your message here then press enter if you want to send your message or shift + enter for new line..."
+          className="bg-zinc-700 resize-none max-h-60"
+          rows={1}
+        />
       </Container>
     </div>
   );
