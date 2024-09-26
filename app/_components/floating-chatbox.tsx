@@ -27,7 +27,7 @@ function FloatingChatbox({
   }
 
   return (
-    <div className="fixed bottom-0 w-full left-0 py-12">
+    <div className="fixed bottom-0 w-full left-0 py-6 pt-0 bg-zinc-800">
       <Container>
         <form onSubmit={handleSubmit}>
           <Textarea
@@ -47,7 +47,7 @@ function FloatingChatbox({
               }
             }}
             placeholder="Type your message here then press enter if you want to send your message or shift + enter for new line..."
-            className="bg-zinc-800 border-zinc-200 resize-none max-h-60"
+            className="bg-zinc-700 resize-none max-h-60"
             rows={1}
           />
         </form>

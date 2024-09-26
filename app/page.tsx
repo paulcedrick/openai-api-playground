@@ -6,8 +6,7 @@ import FloatingChatbox from "./_components/floating-chatbox";
 import MessagesPanel from "./_components/messages-panel";
 
 export default function Home() {
-  const { messages, input, handleInputChange, handleSubmit, setInput } =
-    useChat();
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   return (
     <Container className="min-h-screen relative">
@@ -18,7 +17,6 @@ export default function Home() {
         input={input}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
-        setInput={setInput}
       />
     </Container>
   );

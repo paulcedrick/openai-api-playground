@@ -9,7 +9,7 @@ function MessageBubble(props: {
     return (
       <div className="flex justify-between">
         <div />
-        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-xl dark:bg-gray-900">
+        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-zince-200 rounded-xl bg-zinc-700">
           <div className="flex items-center space-x-2">
             <span className="text-sm font-semibold text-gray-900 dark:text-white">
               You
@@ -28,7 +28,7 @@ function MessageBubble(props: {
 
   return (
     <div className="flex justify-between">
-      <div className="flex flex-col w-full max-w-[80%] leading-1.5 p-4 border-gray-200 rounded-xl dark:bg-gray-900">
+      <div className="flex flex-col w-full max-w-[80%] leading-1.5 p-4">
         <div className="flex items-center space-x-2">
           <span className="text-sm font-semibold text-gray-900 dark:text-white">
             4o mini
