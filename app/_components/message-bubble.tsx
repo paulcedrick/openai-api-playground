@@ -1,5 +1,8 @@
+import { Button } from "@/components/ui/button";
+import { Copy } from "lucide-react";
 import Markdown from "markdown-to-jsx";
 import { memo } from "react";
+import { toast } from "sonner";
 
 function MessageBubble(props: {
   role: "function" | "data" | "system" | "user" | "assistant" | "tool";
@@ -40,9 +43,18 @@ function MessageBubble(props: {
         <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
           <Markdown>{props.content}</Markdown>
         </div>
-        <button onClick={() => navigator.clipboard.writeText(props.content)}>
-          Copy
-        </button>
+        <div className="flex gap-2 items-center">
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => {
+              navigator.clipboard.writeText(props.content);
+              toast("Successfully copied the message.");
+            }}
+          >
+            <Copy size="12px" />
+          </Button>
+        </div>
       </div>
       <div />
     </div>
